@@ -1,0 +1,18 @@
+.Container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+     background-color:rgb(46, 62, 46);
+     
+     
+    
+}
+
+a{
+    text-decoration: none;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    font-size:x-large;
+    color: black;
+    margin: 5px;
+}
