@@ -6,7 +6,7 @@ class Complete extends React.Component{
         super(props)
     }
     shouldComponentUpdate(nextProps,nextState){
-        if(_isEqual(nextProps.deletedTask,this.props.completedTask)){
+        if(_isEqual(nextProps.completedTask,this.props.completedTask)){
             return false
         }
         else{
