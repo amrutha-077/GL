@@ -33,6 +33,7 @@ class Contact extends React.Component{
             
         }).then((res)=>{return res.json()}).then((res)=>this.setState({results:res}),window.location.reload()).catch((err)=>console.log(err))
         
+        
     }
 
     deleteUser=(e,itemid)=>{
@@ -41,15 +42,6 @@ class Contact extends React.Component{
         axios.get('http://localhost:3001/empDetails').then((res)=>this.setState({results:res.data})).catch((err)=>console.log(err))
     }
 
-    // updateUser=(e,itemid)=>{
-    //     e.preventDefault()
-    //     axios.patch('http://localhost:3001/empDetails',{
-    //             id:Date.now(),
-    //             fname:this.state.ipUser,
-    //             phone:this.state.ipPhone,
-    //             email:this.state.ipEmail,    
-    //     }).then((res)=>{return res.json()}).then((res)=>this.setState({results:res})).catch((err)=>console.log(err))
-    // }
 
    handleChange=(e,key)=>{
     if(key==='uname')
@@ -60,24 +52,64 @@ class Contact extends React.Component{
     this.setState({ipEmail:e.target.value})
       
    }
-   toggleUpdate=()=>{
-    this.setState({update:!this.state.update})
-}
+//    toggleUpdate=()=>{
+//     this.setState({update:!this.state.update})
+//    }
+//     setUpdateMsg=(e,itemid)=>{
+//         e.preventDefault()
+//         this.toggleUpdate()   
+//         this.setState({uid:itemid})
+//     }
+//     handleUpdate=(e)=>{
+//         e.preventDefault()
+//         let temp=[...this.state.contactinfo]
+//         let obj=temp.find((item)=>item.id===this.state.uid)
+//         obj.fname=this.state.ipUser
+//         this.setState({contactinfo:temp})
+//         this.setState({uid:-1})
+//         this.toggleUpdate()
+//     }
 setUpdateMsg=(e,itemid)=>{
     e.preventDefault()
-    this.toggleUpdate()   
+    // this.toggleUpdate()  
+    
+    // this.setState({update:!this.state.update})
+    this.setState({update:true})
     this.setState({uid:itemid})
+    let temp=[...this.state.contactinfo] 
+    let obj=temp.find((item)=>item.id===itemid)
+    console.log("itemid",itemid,obj);
+    this.setState({ipUser:obj.fname})
+    this.setState({ipPhone:obj.phone})
+    this.setState({ipEmail:obj.email})
+    this.setState({ipCity:obj.city})
+    // this.setState({ipAddress:obj.address})
+    
+    // console.log(this.state.uid);
 }
 handleUpdate=(e)=>{
     e.preventDefault()
-    let temp=[...this.state.contactinfo]
-    let obj=temp.find((item)=>item.id===this.state.uid)
-    obj.fname=this.state.ipUser
-    this.setState({contactinfo:temp})
-    this.setState({uid:-1})
-    this.toggleUpdate()
-}
+    // let temp=[...this.state.contactinfo]
+    // let obj=temp.find((item)=>item.id===this.state.uid)
+    // obj.fname=this.state.ipUser
+    // obj.email=this.state.ipEmail
+    // obj.phone=this.state.ipPhone
+    // this.setState({contactinfo:temp})
+   
+
+    axios.put(`http://localhost:3001/empDetails/${itemid}`,{
+        fname:this.state.ipUser,
+        phone:this.state.ipPhone,
+        email:this.state.ipEmail,
+        
+    })
+    .then((res)=>{ console.log(res);}).catch((err)=>{console.log(err) })
+    this.setState({update:false});
+    this.setState({ipUser:""})
+    this.setState({ipPhone:""})
+    this.setState({ipEmail:""})
     
+}
     
     render(){
         return(
@@ -104,9 +136,12 @@ handleUpdate=(e)=>{
                      
                 <form className="form">
                     <h5><u>Fill the details!</u></h5>
-                Username:<input type='text' onChange={(e)=>this.handleChange(e,'uname')}></input>
-                Phone:<input type='text' onChange={(e)=>this.handleChange(e,'phone')}></input>
-                Email:<input type='text' onChange={(e)=>this.handleChange(e,'email')}></input>
+                Username:<input type='text'  onChange={(e)=>this.handleChange(e,'uname')} 
+                    value={this.state.ipUser}></input>
+                Phone:<input type='text' onChange={(e)=>this.handleChange(e,'phone')}
+                    value={this.state.ipPhone}></input>
+                Email:<input type='text'  onChange={(e)=>this.handleChange(e,'email')}
+                    value={this.state.ipEmail}></input>
                 
                 {
                    this.state.update?<button onClick={(e)=>this.handleUpdate(e)}>update contact</button>:<button onClick={(e)=>this.handleContact(e)}>add contact</button>
@@ -140,4 +175,4 @@ handleUpdate=(e)=>{
         )
     }
 }
-export default Contact
+export default Contact 
