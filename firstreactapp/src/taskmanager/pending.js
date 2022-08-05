@@ -5,6 +5,14 @@ class Pending extends React.Component{
     constructor(props){
         super(props)
     }
+    shouldComponentUpdate(nextProps,nextState){
+        if(_isEqual(nextProps.pendingTask,this.props.pendingTask)){
+            return false
+        }
+        else{
+            return true
+        }
+    }
     render(){
         console.log(" pending render")
         const {pendingTask,changeCompletion,deleteTask}=this.props

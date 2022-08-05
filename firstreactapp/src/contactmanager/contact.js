@@ -87,29 +87,21 @@ setUpdateMsg=(e,itemid)=>{
     
     // console.log(this.state.uid);
 }
-handleUpdate=(e)=>{
-    e.preventDefault()
-    // let temp=[...this.state.contactinfo]
-    // let obj=temp.find((item)=>item.id===this.state.uid)
-    // obj.fname=this.state.ipUser
-    // obj.email=this.state.ipEmail
-    // obj.phone=this.state.ipPhone
-    // this.setState({contactinfo:temp})
-   
-
-    axios.put(`http://localhost:3001/empDetails/${itemid}`,{
-        fname:this.state.ipUser,
-        phone:this.state.ipPhone,
-        email:this.state.ipEmail,
+// handleUpdate=(e)=>{
+//     e.preventDefault()
+//     axios.put(`http://localhost:3001/empDetails/${itemid}`,{
+//         fname:this.state.ipUser,
+//         phone:this.state.ipPhone,
+//         email:this.state.ipEmail,
         
-    })
-    .then((res)=>{ console.log(res);}).catch((err)=>{console.log(err) })
-    this.setState({update:false});
-    this.setState({ipUser:""})
-    this.setState({ipPhone:""})
-    this.setState({ipEmail:""})
+//     })
+//     .then((res)=>{ console.log(res);}).catch((err)=>{console.log(err) })
+//     this.setState({update:false});
+//     this.setState({ipUser:""})
+//     this.setState({ipPhone:""})
+//     this.setState({ipEmail:""})
     
-}
+// }
     
     render(){
         return(

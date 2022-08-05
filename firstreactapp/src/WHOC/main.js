@@ -13,7 +13,6 @@ class Eproducts extends React.Component{
         return {productDetails:props.data}
     }
     handleChange=(event)=>{
-        // console.log(event.target.value)
         this.setState({search:event.target.value})
     }
     handleSearch=(event)=>{
