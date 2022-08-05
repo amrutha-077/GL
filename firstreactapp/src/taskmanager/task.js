@@ -49,7 +49,7 @@ class Task extends React.Component{
      }
    
     /*     to  not display the restore items */
-     changeRestoreStatus=(itemid)=>{
+     changeRestoreStatus=(itemaid)=>{
         const temp=[...this.state.tasks]
         const obj=temp.find((item)=>item.id===itemid)
         obj.deletion=!obj.deletion
