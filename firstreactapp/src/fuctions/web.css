@@ -1,0 +1,31 @@
+.card{
+    width: 50%;
+    margin: 5% 0 5% 25%;
+    /* padding: 3%; */
+    border:rgb(84, 83, 83) 3px solid;
+    background-color: rgb(182, 186, 196);
+}
+
+.btn1{
+    background-color:rgb(39, 41, 41);
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 20%;
+    margin:2% 0% 5% 40%;
+    text-decoration: none; 
+    padding: 2%;
+    
+  }
+  .btn1:hover {
+    background-color: #505650;
+    color: white;
+    border-color: black;
+  }
+
+  h1{
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    padding: 5%;
+  }

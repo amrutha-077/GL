@@ -1,0 +1,64 @@
+
+.card{
+    width:25%;
+    margin:5% 1% 2% 5%;
+}
+
+.btn1{
+    background-color:rgb(179, 177, 184);
+    border: black 2px solid;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    margin:5% 0% 5% 0%;
+    text-decoration: none; 
+    padding: 5%;
+    
+  }
+  .btn1:hover {
+    background-color: #505650;
+    color: white;
+    border-color: black;
+  }
+
+  h2{
+    /* margin-top: 5%; */
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    /* background-color: rgb(125, 133, 153); */
+    background-color: rgb(209, 199, 199);
+   
+  }
+
+  input[type=text]{
+    width: 50%;
+    height: 20%;
+    font-weight: bolder;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  .btn2{
+    background-color:rgb(179, 177, 184);
+    border: black 2px solid;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 10%;
+    margin:5% 0% 5% 0%;
+    text-decoration: none; 
+    padding: 0%;
+    
+  }
+  .btn2:hover {
+    background-color: #505650;
+    color: white;
+    border-color: black;
+  }
